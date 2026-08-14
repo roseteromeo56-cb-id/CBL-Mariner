@@ -103,11 +103,20 @@ dump_raw()
     return 0
 }
 
+kdump_shell_quote()
+{
+    printf "'"
+    printf '%s' "$1" | sed "s/'/'\\\\''/g"
+    printf "'"
+}
+
 dump_ssh()
 {
     local _opt="-i $1 -o BatchMode=yes -o StrictHostKeyChecking=yes"
     local _dir="$KDUMP_PATH/$HOST_IP-$DATEDIR"
     local _host=$2
+    local _vmcore_incomplete
+    local _vmcore_flat
 
     echo "kdump: saving to $_host:$_dir"
 
@@ -124,7 +133,11 @@ dump_ssh()
         ssh $_opt $_host "mv $_dir/vmcore-incomplete $_dir/vmcore" || return 1
     else
         $CORE_COLLECTOR /proc/vmcore | ssh $_opt $_host "dd bs=512 of=$_dir/vmcore-incomplete" || return 1
-        ssh $_opt $_host "mv $_dir/vmcore-incomplete $_dir/vmcore.flat" || return 1
+        _vmcore_incomplete=$(kdump_shell_quote "$_dir/vmcore-incomplete")
+        _vmcore_flat=$(kdump_shell_quote "$_dir/vmcore.flat")
+        ssh $_opt $_host 'sh -s' <<EOF || return 1
+mv -- $_vmcore_incomplete $_vmcore_flat
+EOF
     fi
 
     echo "kdump: saving vmcore complete"
