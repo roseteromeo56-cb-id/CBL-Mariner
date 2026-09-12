@@ -36,7 +36,7 @@ rm -f [0-9]*.patch
 mv $git_checkout/[0-9]*.patch .
 
 # Remove any not to be applied.
-rm -f *NOT-FOR-RPM*.patch
+rm -f -- *NOT-FOR-RPM*.patch
 
 # Add the patches.
 git add [0-9]*.patch
