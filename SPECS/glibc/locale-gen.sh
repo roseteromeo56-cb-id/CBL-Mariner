@@ -24,7 +24,7 @@ while read locale charset; do \
 	is_entry_ok || continue
 	echo -n "  `echo $locale | sed 's/\([^.\@]*\).*/\1/'`"; \
 	echo -n ".$charset"; \
-	echo -n "`echo $locale | sed 's/\([^\@]*\)\(\@.*\)*/\2/'`"; \
+	echo -n "$(echo "$locale" | sed 's/\([^\@]*\)\(\@.*\)*/\2/')"; \
 	echo -n '...'; \
         if [ -f $LOCALES/$locale ]; then input=$locale; else \
         input=`echo $locale | sed 's/\([^.]*\)[^@]*\(.*\)/\1\2/'`; fi; \
