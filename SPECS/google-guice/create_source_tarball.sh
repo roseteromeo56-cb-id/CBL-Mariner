@@ -64,7 +64,13 @@ tar xf "../${name}-${version}.orig.tar.gz"
 
 # CLEAN TARBALL
 cd ./guice-$version
-rm -rf "$(ls . | grep -E -v 'core|extensions|pom|bom|jdk8-tests|COPYING|common.xml')"
+for path in *; do
+    [ -e "$path" ] || [ -L "$path" ] || continue
+    case "$path" in
+        *core*|*extensions*|*pom*|*bom*|*jdk8-tests*|*COPYING*|*common.xml*) ;;
+        *) rm -rf -- "$path" ;;
+    esac
+done
 find . -name "*.jar" -delete
 find . -name "*.class" -delete
 cd ..
