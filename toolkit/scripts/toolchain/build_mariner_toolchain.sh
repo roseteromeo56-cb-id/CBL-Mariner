@@ -30,7 +30,7 @@ TIMESTAMP_FILE_PATH=${15}
 # Create toolchain subdirectory in out folder
 mkdir -pv $MARINER_BUILD_DIR/toolchain
 mkdir -pv $MARINER_RPM_DIR/noarch
-mkdir -pv $MARINER_RPM_DIR/$(uname -m)
+mkdir -pv $MARINER_RPM_DIR/"$(uname -m)"
 
 ./build_official_toolchain_rpms.sh \
     "$MARINER_DIST_TAG" \
