@@ -137,7 +137,7 @@ cd       build
       --prefix=/tools                    \
       --disable-werror                   \
       --host=$LFS_TGT                    \
-      --build=$(../scripts/config.guess) \
+      --build="$(../scripts/config.guess)" \
       --enable-kernel=3.2                \
       --with-headers=/tools/include      \
       libc_cv_forced_unwind=yes          \
