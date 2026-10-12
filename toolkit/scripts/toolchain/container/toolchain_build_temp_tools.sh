@@ -531,7 +531,7 @@ echo Tar-1.34
 tar xf tar-1.34.tar.xz
 pushd tar-1.34
 ./configure --prefix=/tools
-make -j$(nproc)
+make -j"$(nproc)"
 make install
 popd
 rm -rf tar-1.34
