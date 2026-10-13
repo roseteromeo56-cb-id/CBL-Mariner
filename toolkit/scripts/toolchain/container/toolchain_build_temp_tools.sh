@@ -308,7 +308,7 @@ echo M4-1.4.19
 tar xf m4-1.4.19.tar.gz
 pushd m4-1.4.19
 ./configure --prefix=/tools
-make -j$(nproc)
+make -j"$(nproc)"
 make install
 popd
 rm -rf m4-1.4.19
