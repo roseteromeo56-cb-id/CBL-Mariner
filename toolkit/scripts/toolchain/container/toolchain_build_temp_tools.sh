@@ -459,7 +459,7 @@ echo Gzip-1.11
 tar xf gzip-1.11.tar.xz
 pushd gzip-1.11
 ./configure --prefix=/tools
-make -j$(nproc)
+make -j"$(nproc)"
 make install
 popd
 rm -rf gzip-1.11
