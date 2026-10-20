@@ -509,7 +509,7 @@ tar xf Python-3.9.13.tar.xz
 pushd Python-3.9.13
 sed -i '/def add_multiarch_paths/a \        return' setup.py
 ./configure --prefix=/tools --without-ensurepip --enable-shared
-make -j$(nproc)
+make -j"$(nproc)"
 make install
 popd
 rm -rf Python-3.9.13
