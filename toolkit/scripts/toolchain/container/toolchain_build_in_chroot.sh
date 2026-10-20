@@ -260,7 +260,7 @@ cd build
              --with-system-zlib
 #             --enable-install-libiberty
 # libiberty.a used to be in binutils. Now it is in GCC.
-make -j$(nproc) tooldir=/usr
+make -j"$(nproc)" tooldir=/usr
 make tooldir=/usr install
 popd
 rm -rf binutils-2.37
