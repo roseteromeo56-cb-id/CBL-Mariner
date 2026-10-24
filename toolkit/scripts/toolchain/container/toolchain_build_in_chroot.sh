@@ -144,7 +144,7 @@ ln -sv /tools/bin/ld /tools/$BUILD_TARGET/bin/ld
 gcc -dumpspecs | sed -e 's@/tools@@g'                   \
     -e '/\*startfile_prefix_spec:/{n;s@.*@/usr/lib/ @}' \
     -e '/\*cpp:/{n;s@$@ -isystem /usr/include@}' >      \
-    `dirname $(gcc --print-libgcc-file-name)`/specs
+    `dirname "$(gcc --print-libgcc-file-name)"`/specs
 # Sanity check for adjusted toolchain:
 echo sanity check - raw toolchain - adjusting the toolchain
 set +e
