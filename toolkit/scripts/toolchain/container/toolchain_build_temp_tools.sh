@@ -481,7 +481,7 @@ echo Patch-2.7.6
 tar xf patch-2.7.6.tar.xz
 pushd patch-2.7.6
 ./configure --prefix=/tools
-make -j$(nproc)
+make -j"$(nproc)"
 make install
 popd
 rm -rf patch-2.7.6
