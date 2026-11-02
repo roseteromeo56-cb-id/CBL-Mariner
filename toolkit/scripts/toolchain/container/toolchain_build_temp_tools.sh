@@ -426,7 +426,7 @@ echo Gawk-5.1.1
 tar xf gawk-5.1.1.tar.xz
 pushd gawk-5.1.1
 ./configure --prefix=/tools
-make -j$(nproc)
+make -j"$(nproc)"
 make install
 popd
 rm -rf gawk-5.1.1
