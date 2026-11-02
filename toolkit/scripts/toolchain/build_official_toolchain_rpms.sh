@@ -22,7 +22,7 @@ MARINER_TOOLCHAIN_MANIFESTS_FILE=${12}
 # =====================================================
 BLDTRACKER=${13}
 TIMESTAMP_FILE_PATH=${14}
-source $(dirname  $0)/../timestamp.sh
+source "$(dirname  $0)"/../timestamp.sh
 # =====================================================
 
 begin_timestamp
