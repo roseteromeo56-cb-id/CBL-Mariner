@@ -202,7 +202,7 @@ echo Zlib-1.2.12
 tar xf zlib-1.2.12.tar.xz
 pushd zlib-1.2.12
 ./configure --prefix=/usr
-make -j$(nproc)
+make -j"$(nproc)"
 make install
 popd
 rm -rf zlib-1.2.12
