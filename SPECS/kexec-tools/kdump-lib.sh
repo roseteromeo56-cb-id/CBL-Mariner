@@ -174,7 +174,7 @@ get_failure_action_target()
     if is_dump_to_rootfs; then
         # Get rootfs device name
         _target=$(get_root_fs_device)
-        [ -b "$_target" ] && echo $(to_dev_name $_target) && return
+        [ -b "$_target" ] && echo "$(to_dev_name $_target)" && return
         # Then, must be nfs root
         echo "nfs"
     fi
