@@ -443,7 +443,7 @@ default_dump_target_install_conf()
 
     is_user_configured_dump_target && return
 
-    _save_path=$(get_bind_mount_source $(get_save_path))
+    _save_path=$(get_bind_mount_source "$(get_save_path)")
     _target=$(get_target_from_path $_save_path)
     _mntpoint=$(get_mntpoint_from_target $_target)
 
