@@ -593,8 +593,8 @@ append_cmdline()
 # 4GB of ram available. Returns 1 if we do, 0 if we dont
 need_64bit_headers()
 {
-    return `tail -n 1 /proc/iomem | awk '{ split ($1, r, "-"); \
-    print (strtonum("0x" r[2]) > strtonum("0xffffffff")); }'`
+    return "`tail -n 1 /proc/iomem | awk '{ split ($1, r, "-"); \
+    print (strtonum("0x" r[2]) > strtonum("0xffffffff")); }'`"
 }
 
 # Check if secure boot is being enforced.
